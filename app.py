@@ -8,7 +8,7 @@ import time
 
 # --- Page Config & Styling ---
 st.set_page_config(
-    page_title="Whispr Sims+",
+    page_title="ReadTheLips AI",
     page_icon="🎙️",
     layout="wide",
     initial_sidebar_state="expanded"
@@ -101,7 +101,7 @@ def diarize_with_gpt4(client, transcript_text):
         response = client.chat.completions.create(
             model="gpt-4o",
             messages=[
-                {"role": "system", "content": "You are a professional transcriber. Your task is to format the following raw transcript into a readable script. \n1. Identify different speakers (Speaker 1, Speaker 2, etc.) based on context, tone changes, and flow. \n2. Add paragraph breaks for readability. \n3. Do not summarize; keep the full content. \n4. If it's a monologue, just format it nicely."},
+                {"role": "system", "content": "You are a professional transcriber. Your task is to format the following raw transcript into a readable script. \n1. Identify different speakers (Speaker 1, Speaker 2, etc.) based on context, tone changes, and flow. \n2. Add paragraph breaks and the speaker stamps for readability. \n3. Do not summarize; keep the full content. \n4. If it's a monologue, just format it nicely."},
                 {"role": "user", "content": transcript_text}
             ],
             temperature=0.3
