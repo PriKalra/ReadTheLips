@@ -1,6 +1,6 @@
 # ReadTheLips AI 🎙️
 
-Whisprflow AI is a powerful audio and video transcription tool built with **Streamlit** and **OpenAI**. It allows you to upload media files or dictate directly to generate structured, speaker-identified transcripts.
+ReadTheLips AI is a experimental audio and video transcription tool built with **Streamlit** and **OpenAI**. It allows you to upload media files or dictate directly to generate structured, speaker-identified transcripts.
 
 ## ✨ Features
 
