@@ -3,7 +3,7 @@ import os
 import math
 import tempfile
 from openai import OpenAI
-from moviepy import VideoFileClip, AudioFileClip
+from moviepy.editor import VideoFileClip, AudioFileClip
 import time
 
 # --- Page Config & Styling ---
@@ -101,7 +101,7 @@ def diarize_with_gpt4(client, transcript_text):
         response = client.chat.completions.create(
             model="gpt-4o",
             messages=[
-                {"role": "system", "content": "You are a professional transcriber. Your task is to format the following raw transcript into a readable script. \n1. Identify different speakers (Speaker 1, Speaker 2, etc.) based on context, tone changes, and flow. \n2. Add paragraph breaks and the speaker stamps for readability. \n3. Do not summarize; keep the full content. \n4. If it's a monologue, just format it nicely."},
+                {"role": "system", "content": "You are a professional transcriber. Your task is to format the following raw transcript into a readable script. \n1. Identify different speakers (Speaker 1, Speaker 2, etc.) based on context, tone changes, and flow. \n2. Add paragraph breaks and the speaker stamps for readability. \n3. Do not summarize; keep the full content. \n4. If it's a monologue, label it as 'Speaker 1' and format it nicely."},
                 {"role": "user", "content": transcript_text}
             ],
             temperature=0.3
@@ -207,7 +207,7 @@ def process_and_transcribe(client, input_path, status_container):
 
 # --- Main UI Logic ---
 
-st.title("🎙️ Whisprflow AI")
+st.title("🎙️ ReadTheLips AI")
 st.markdown("### Transform your audio & video into structured text.")
 
 # Tabs for Upload vs Dictate
